@@ -3,7 +3,7 @@ import Navbar from '@/app/layouts/Navbar';
 
 export default function Header() {
   return (
-    <header className="  bg-red-500  px-4 py-2 flex justify-between items-center">
+    <header className="  bg-red-500  px-4 py-2 flex justify-between items-center rounded-b-lg">
       <Image
         src="/images/logo.webp"
         width={150}

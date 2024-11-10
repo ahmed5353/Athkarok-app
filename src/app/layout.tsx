@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body
-        className={` ${cairo.className} ${almarai.className} antialiased max-w-3xl mx-auto`}
+        className={` ${cairo.className} ${almarai.className} antialiased max-w-5xl mx-auto`}
       >
         <Header />
         {children}
