@@ -1,9 +1,18 @@
+import clsx from 'clsx';
+
+type AthkarCategoryProps = { category: string; className?: string };
+
 export default function AthkarCategory({
   category,
-}: Readonly<{ category: string }>) {
+  className,
+  ...props
+}: Readonly<AthkarCategoryProps>) {
   return (
-    <div key={category} className="text-xl font-bold border border-yellow-300">
+    <button
+      className={clsx('text-xl font-bold  p-4 text-center ', className)}
+      {...props}
+    >
       {category}
-    </div>
+    </button>
   );
 }

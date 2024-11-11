@@ -1,23 +1,29 @@
+import clsx from 'clsx';
+import AthkarCategory from './AthkarCategory';
+
 export default function AthkarCategories() {
   const categories: string[] = [
     'أذكار الصباح',
     'أذكار المساء',
-    'أذكار النوم',
     'أذكار المسجد',
+    'أذكار النوم',
   ];
 
   return (
     <div
       aria-label="Athkar categories"
-      className="grid grid-cols-2  content-center bg-red-400  "
+      className={clsx('grid grid-cols-2 bg-red-400  rounded-lg')}
     >
-      {categories.map((category) => (
-        <div
+      {categories.map((category, index) => (
+        <AthkarCategory
           key={category}
-          className="text-xl font-bold  flex justify-center h-full p-2 border border-yellow-300"
-        >
-          {category}
-        </div>
+          category={category}
+          className={clsx({
+            'border-l border-b': index === 0,
+            'border-b ': index === 1,
+            'border-r ': index === 3,
+          })}
+        />
       ))}
     </div>
   );

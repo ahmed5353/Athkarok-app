@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function AthkarHeader() {
   return (
-    <section className="bg-red-500 py-4 px-2 ">
+    <section className="bg-red-500 py-4 px-2 rounded-lg ">
       <div className="flex justify-between">
         <div className="space-y-2">
           <h2 className="text-[#ffc649] text-2xl font-bold ">أذكارك،</h2>
