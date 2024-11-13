@@ -1,5 +1,5 @@
-import Card from '@/app/components/Card';
-import Tag from '@/app/components/Tag';
+import Card from '@/components/Card';
+import Tag from '@/components/Tag';
 import React from 'react';
 
 export default function RadioLive() {
