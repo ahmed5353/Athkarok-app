@@ -2,10 +2,10 @@ interface TagProps {
   label: string;
   className?: string;
 }
-export default function Tag({ label, className = '' }: TagProps) {
+export default function Tag({ label, className = "" }: TagProps) {
   return (
     <span
-      className={`bg-gray-100 text-black  px-4 py-[2px] font-semibold text-sm rounded-full tracking-wider ${className}`}
+      className={`rounded-full bg-gray-100 px-4 py-[2px] text-sm font-semibold tracking-wider text-black ${className}`}
     >
       {label}
     </span>
