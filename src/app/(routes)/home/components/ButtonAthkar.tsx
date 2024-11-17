@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 interface ButtonAthkarProps {
   title: string;
@@ -6,7 +6,7 @@ interface ButtonAthkarProps {
 
 export default function ButtonAthkar({ title }: ButtonAthkarProps) {
   return (
-    <button className="border mt-4 py-1 px-2 flex gap-3 items-center rounded-sm">
+    <button className="mt-4 flex items-center gap-3 rounded-sm border px-2 py-1">
       <span> {title}</span>
 
       <Image

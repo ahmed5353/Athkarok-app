@@ -1,60 +1,75 @@
-// import { Button } from '@/components/ui/button';
-// import {
-//   DropdownMenu,
-//   DropdownMenuContent,
-//   DropdownMenuGroup,
-//   DropdownMenuItem,
-//   DropdownMenuLabel,
-//   DropdownMenuSeparator,
-//   DropdownMenuTrigger,
-// } from '@/components/ui/dropdown-menu';
-// import { FaChevronDown } from 'react-icons/fa6';
+"use client";
+import { useState } from "react";
+import { RadioStation } from "@/app/types/components";
+import { FaChevronDown } from "react-icons/fa6";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const radioStations: RadioStation[] = [
+  { id: 1, name: "إذاعة القراّن الكريم من القاهرة" },
+  { id: 2, name: " إذاعة المملكة العربية السعودية" },
+  { id: 3, name: "إذاعة الإمارات" },
+];
+
 export function DropdownMenuDemo() {
+  const [selectedStation, setSelectedStation] = useState<string>(
+    radioStations?.[0]?.name || "لا يوجد محطات الأن",
+  );
+
+  function handleStationChange(station: string) {
+    if (!station) return;
+    setSelectedStation(station);
+  }
+  if (!radioStations || radioStations.length === 0) {
+    return (
+      <div className="p-4 text-center">
+        <p>⚠️ لا يوجد محطات الأن حاول في وقت اّخر</p>
+      </div>
+    );
+  }
   return (
-    // <DropdownMenu modal={false} dir="rtl">
-    //   <DropdownMenuTrigger asChild>
-    //     <div>
-    //       <div
-    //         className="bg-gray-50 px-3 py-2 rounded-lg cursor-pointer flex justify-between items-center gap-5"
-    //         aria-label="اذاعة القران الكريم"
-    //       >
-    //         <span className="text-sm">اذاعة القران الكريم من القاهرة</span>
-    //         <div className="flex gap-2">
-    //           <div className="w-[1px] h-5 bg-black "></div>
-
-    //           <FaChevronDown size={20} />
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </DropdownMenuTrigger>
-    //   <DropdownMenuContent className="w-56">
-    //     <DropdownMenuLabel>My Account</DropdownMenuLabel>
-    //     <DropdownMenuSeparator />
-    //     <DropdownMenuGroup>
-    //       <DropdownMenuItem>اذاعة المملكة العربية السعودية</DropdownMenuItem>
-    // <DropdownMenuItem value =''>اذاعة الامارات</DropdownMenuItem>
-    //       <DropdownMenuItem>اذاعة المملكة العربية السعودية</DropdownMenuItem>
-    //     </DropdownMenuGroup>
-    //     <DropdownMenuSeparator />
-
-    //     <DropdownMenuItem>المزيد ...</DropdownMenuItem>
-    //   </DropdownMenuContent>
-    // </DropdownMenu>
-    <div className="flex cursor-pointer items-center justify-between gap-5 rounded-lg bg-gray-50 px-3 py-2">
-      <select
-        defaultValue="اذاعة القران الكريم من القاهرة"
-        className="cursor-pointer appearance-none text-sm outline-none"
-        dir="rtl"
-      >
-        <option value="اذاعة القران الكريم من القاهرة">
-          اذاعة القران الكريم من القاهرة
-        </option>
-        <option value="اذاعة المملكة العربية السعودية">
-          اذاعة المملكة العربية السعودية
-        </option>
-        <option value="اذاعة الامارات">اذاعة الامارات</option>
-        <option value="المزيد ...">المزيد ...</option>
-      </select>
-    </div>
+    <DropdownMenu modal={false} dir="rtl">
+      <DropdownMenuTrigger asChild>
+        <div>
+          <div
+            className="flex min-w-56 cursor-pointer items-center justify-between gap-5 rounded-lg bg-gray-50 px-3 py-2"
+            aria-label="اذاعة القران الكريم"
+          >
+            <span className="text-sm">{selectedStation}</span>
+            <div className="flex gap-2">
+              <div className="h-5 w-[1px] bg-black"></div>
+              <FaChevronDown size={20} />
+            </div>
+          </div>
+        </div>
+      </DropdownMenuTrigger>
+      {/* TODO: Make list Items the favorite if no favourites use the most Common */}
+      <DropdownMenuContent className="w-56" role="menu">
+        <DropdownMenuLabel className="font-extrabold">
+          الأكثر شهرة
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          {radioStations.map((radioStation) => (
+            <DropdownMenuItem
+              key={radioStation.id}
+              role="menuitem"
+              onClick={() => handleStationChange(radioStation.name)}
+            >
+              {radioStation.name}
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem role="menuitem">المزيد ...</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
