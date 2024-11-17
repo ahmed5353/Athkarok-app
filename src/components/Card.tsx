@@ -1,9 +1,15 @@
-import { ReactNode } from 'react';
+import clsx from "clsx";
+import { ReactNode } from "react";
 
 interface CardProps {
   children: ReactNode;
+  className?: string;
 }
 
-export default function Card({ children }: CardProps) {
-  return <section className="bg-red-500 p-3 rounded-lg ">{children}</section>;
+export default function Card({ children, className }: CardProps) {
+  return (
+    <section className={clsx("rounded-lg bg-[#eaeaea] p-3", className)}>
+      {children}
+    </section>
+  );
 }

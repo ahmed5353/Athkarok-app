@@ -20,7 +20,7 @@ const radioStations: RadioStation[] = [
 
 export function DropdownMenuDemo() {
   const [selectedStation, setSelectedStation] = useState<string>(
-    radioStations?.[0]?.name || "لا يوجد محطات الأن",
+    "إذاعة القراّن الكريم من القاهرة",
   );
 
   function handleStationChange(station: string) {
