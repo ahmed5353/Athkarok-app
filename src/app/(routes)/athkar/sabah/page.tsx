@@ -6,9 +6,9 @@ import FooterItem from "./components/FooterItem";
 
 export default function page() {
   const footerItems = [
-    { id: 1, label: "مرات التكرار", value: "3" },
-    { id: 2, label: "الدليل", value: <GiInfo className="text-lg" /> },
-    { id: 3, label: "مشاركة", value: <FiShare2 className="text-lg" /> },
+    { id: 1, label: "مرات التكرار", value: 3 },
+    { id: 2, label: "الدليل", value: <GiInfo className="text-xl" /> },
+    { id: 3, label: "مشاركة", value: <FiShare2 className="text-xl" /> },
   ];
   return (
     <Card>
@@ -24,9 +24,14 @@ export default function page() {
           </p>
         </blockquote>
         <footer>
-          <div className="flex justify-around rounded-xl bg-red-400 p-2">
-            {footerItems?.map((item) => (
-              <FooterItem key={item.id} label={item.label} value={item.value} />
+          <div className="grid grid-cols-3 rounded-xl border border-gray-900 bg-gray-200 p-1.5">
+            {footerItems?.map((item, index) => (
+              <FooterItem
+                key={item.id}
+                label={item.label}
+                value={item.value}
+                isLast={index === footerItems.length - 1}
+              />
             ))}
           </div>
         </footer>

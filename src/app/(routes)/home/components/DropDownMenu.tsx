@@ -52,8 +52,8 @@ export function DropdownMenuDemo() {
       </DropdownMenuTrigger>
       {/* TODO: Make list Items the favorite if no favourites use the most Common */}
       <DropdownMenuContent className="w-56" role="menu">
-        <DropdownMenuLabel className="font-extrabold">
-          الأكثر شهرة
+        <DropdownMenuLabel className="text-md font-bold">
+          محطات شائعة
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
