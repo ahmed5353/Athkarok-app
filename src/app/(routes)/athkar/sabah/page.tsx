@@ -1,41 +1,17 @@
-import Card from "@/components/Card";
-import React from "react";
-import { FiShare2 } from "react-icons/fi";
-import { GiInfo } from "react-icons/gi";
-import FooterItem from "./components/FooterItem";
+import ThikrCard from "@/components/ThikrCard";
 
 export default function page() {
-  const footerItems = [
-    { id: 1, label: "مرات التكرار", value: 3 },
-    { id: 2, label: "الدليل", value: <GiInfo className="text-xl" /> },
-    { id: 3, label: "مشاركة", value: <FiShare2 className="text-xl" /> },
-  ];
   return (
-    <Card>
-      <article>
-        <blockquote className="mb-4 px-4 py-2">
-          <p className="text-justify text-xl leading-[1.95]">
-            اللَّهُ لا إِلهَ إِلّا هُوَ الحَيُّ القَيّومُ لا تَأخُذُهُ سِنَةٌ
+    <>
+      <ThikrCard
+        repeat={3}
+        thikr=" اللَّهُ لا إِلهَ إِلّا هُوَ الحَيُّ القَيّومُ لا تَأخُذُهُ سِنَةٌ
             وَلا نَومٌ لَهُ ما فِي السَّماواتِ وَما فِي الأَرضِ مَن ذَا الَّذي
             يَشفَعُ عِندَهُ إِلّا بِإِذنِهِ يَعلَمُ ما بَينَ أَيديهِم وَما
             خَلفَهُم وَلا يُحيطونَ بِشَيءٍ مِن عِلمِهِ إِلّا بِما شاءَ وَسِعَ
             كُرسِيُّهُ السَّماواتِ وَالأَرضَ وَلا يَئودُهُ حِفظُهُما وَهُوَ
-            العَلِيُّ العَظيمُ.
-          </p>
-        </blockquote>
-        <footer>
-          <div className="grid grid-cols-3 rounded-xl border border-gray-900 bg-gray-200 p-1.5">
-            {footerItems?.map((item, index) => (
-              <FooterItem
-                key={item.id}
-                label={item.label}
-                value={item.value}
-                isLast={index === footerItems.length - 1}
-              />
-            ))}
-          </div>
-        </footer>
-      </article>
-    </Card>
+            العَلِيُّ العَظيمُ."
+      />
+    </>
   );
 }
