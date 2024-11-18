@@ -62,13 +62,16 @@ export function DropdownMenuDemo() {
               key={radioStation.id}
               role="menuitem"
               onClick={() => handleStationChange(radioStation.name)}
+              className="cursor-pointer"
             >
               {radioStation.name}
             </DropdownMenuItem>
           ))}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem role="menuitem">المزيد ...</DropdownMenuItem>
+        <DropdownMenuItem role="menuitem" className="cursor-pointer">
+          المزيد ...
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
