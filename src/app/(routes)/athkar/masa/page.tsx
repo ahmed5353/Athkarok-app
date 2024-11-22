@@ -1,6 +1,6 @@
-import ThikrCard from "@/components/ThikrCard";
+import ThikrCard from "@/app/components/ThikrCard";
 
-export default function page() {
+export default function MasaPage() {
   return (
     <ThikrCard
       repeat={3}

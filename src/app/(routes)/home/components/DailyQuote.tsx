@@ -1,5 +1,5 @@
-import Card from "@/components/Card";
-import Tag from "@/components/Tag";
+import Card from "@/app/components/Card";
+import Tag from "@/app/components/Tag";
 import { FiShare2 } from "react-icons/fi";
 
 interface DailyQuoteProps {

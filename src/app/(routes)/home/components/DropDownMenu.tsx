@@ -10,7 +10,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/app/components/ui/dropdown-menu";
 
 const radioStations: RadioStation[] = [
   { id: 1, name: "إذاعة القراّن الكريم من القاهرة" },

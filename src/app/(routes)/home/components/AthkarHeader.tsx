@@ -1,5 +1,5 @@
 import sunImg from "@/../public/images/sun.webp";
-import Card from "@/components/Card";
+import Card from "@/app/components/Card";
 import Image from "next/image";
 import ButtonAthkar from "./ButtonAthkar";
 

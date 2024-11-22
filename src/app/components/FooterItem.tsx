@@ -18,7 +18,7 @@ export default function FooterItem({
   return (
     <div
       className={clsx(
-        "flex cursor-pointer flex-col items-center text-gray-900",
+        "flex cursor-pointer select-none flex-col items-center text-gray-900",
         !isLast && "border-e-2 border-gray-900",
         className,
       )}

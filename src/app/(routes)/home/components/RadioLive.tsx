@@ -1,7 +1,7 @@
-import Card from "@/components/Card";
+import Card from "@/app/components/Card";
 import { DropdownMenuDemo } from "@/app/(routes)/home/components/DropDownMenu";
-import Tag from "@/components/Tag";
-import { Button } from "@/components/ui/button";
+import Tag from "@/app/components/Tag";
+import { Button } from "@/app/components/ui/button";
 import React from "react";
 
 export default function RadioLive() {
