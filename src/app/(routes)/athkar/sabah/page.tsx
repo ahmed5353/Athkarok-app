@@ -1,17 +1,12 @@
 import ThikrCard from "@/app/components/ThikrCard";
+import { sabahZikr } from "@/app/data";
 
 export default function SabahPage() {
   return (
     <>
-      <ThikrCard
-        repeat={3}
-        thikr=" اللَّهُ لا إِلهَ إِلّا هُوَ الحَيُّ القَيّومُ لا تَأخُذُهُ سِنَةٌ
-            وَلا نَومٌ لَهُ ما فِي السَّماواتِ وَما فِي الأَرضِ مَن ذَا الَّذي
-            يَشفَعُ عِندَهُ إِلّا بِإِذنِهِ يَعلَمُ ما بَينَ أَيديهِم وَما
-            خَلفَهُم وَلا يُحيطونَ بِشَيءٍ مِن عِلمِهِ إِلّا بِما شاءَ وَسِعَ
-            كُرسِيُّهُ السَّماواتِ وَالأَرضَ وَلا يَئودُهُ حِفظُهُما وَهُوَ
-            العَلِيُّ العَظيمُ."
-      />
+      {sabahZikr.map((zikr) => (
+        <ThikrCard repeat={zikr.count} thikr={zikr.zikrText} key={zikr.id} />
+      ))}
     </>
   );
 }
