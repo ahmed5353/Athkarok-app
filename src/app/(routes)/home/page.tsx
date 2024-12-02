@@ -4,7 +4,7 @@ import DailyQuote from "./components/DailyQuote";
 import RadioLive from "./components/RadioLive";
 import SalahTime from "./components/SalahTime";
 
-export default function Page() {
+export default function HomePage() {
   return (
     <>
       <AthkarHeader />

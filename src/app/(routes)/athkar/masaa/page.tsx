@@ -1,21 +1,22 @@
 "use client";
-import { useLiveQuery } from "dexie-react-hooks";
-import { zikrDb, ZikrCategory } from "@/lib/db";
-import ThikrCard from "@/app/components/ThikrCard";
-import { Zikr } from "@/app/types/types";
-import { useEffect } from "react";
-import { sabahZikr } from "@/app/data";
 
-export default function SabahZikrPage() {
+import ThikrCard from "@/app/components/ThikrCard";
+import { masaaZikr } from "@/app/data";
+import { Zikr } from "@/app/types/types";
+import { ZikrCategory, zikrDb } from "@/lib/db";
+import { useLiveQuery } from "dexie-react-hooks";
+import { useEffect } from "react";
+
+export default function MasaaPage() {
   useEffect(() => {
     const initDb = async () => {
       // Check if database is empty before adding initial data
-      const sabahCount = await zikrDb.sabahZikr.count();
+      const sabahCount = await zikrDb.masaaZikr.count();
 
       if (sabahCount === 0) {
         await zikrDb.setUpInitialData(
-          sabahZikr, // masaaZikr
           [],
+          masaaZikr, // masaaZikr
           [], // masjidZikr
           [], // sleepZikr
         );
@@ -23,14 +24,11 @@ export default function SabahZikrPage() {
     };
     initDb();
   }, []);
-  // Initialize database on component mount
-
-  // Use useLiveQuery to get real-time updates
-  const zikrs = useLiveQuery(() => zikrDb.sabahZikr.toArray(), []);
+  const zikrs = useLiveQuery(() => zikrDb.masaaZikr.toArray(), []);
 
   const handleZikrClick = async (zikr: Zikr) => {
     if (zikr.id) {
-      await zikrDb.decrementZikrCount(ZikrCategory.SABAH, zikr.id);
+      await zikrDb.decrementZikrCount(ZikrCategory.MASAA, zikr.id);
     }
   };
 

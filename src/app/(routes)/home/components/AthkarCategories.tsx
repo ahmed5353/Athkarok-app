@@ -6,7 +6,7 @@ import { AthkarCategory as Category } from "@/app/types/components";
 export default function AthkarCategories() {
   const categories: Category[] = [
     { id: 1, name: "أذكار الصباح", path: "/athkar/sabah" },
-    { id: 2, name: "أذكار المساء", path: "/athkar/masa" },
+    { id: 2, name: "أذكار المساء", path: "/athkar/masaa" },
     { id: 3, name: "أذكار المسجد", path: "/athkar/masjid" },
     { id: 4, name: "أذكار النوم", path: "/athkar/sleep" },
   ];
