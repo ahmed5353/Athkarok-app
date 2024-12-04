@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body
-        className={` ${cairo.className} ${almarai.className} mx-auto max-w-5xl bg-[#ddd] antialiased`}
+        className={` ${cairo.className} ${almarai.className} bg-[#ddd] antialiased`}
       >
         <Header />
         <main className="mx-auto mt-6 flex max-w-2xl flex-col gap-3">

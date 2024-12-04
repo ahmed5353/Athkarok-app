@@ -1,20 +1,30 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, MouseEvent as ReactMouseEvent } from "react";
 import FooterItem from "./FooterItem";
 import { GiInfo } from "react-icons/gi";
 import { FiShare2 } from "react-icons/fi";
+import DalelDialog from "./DalelDialog";
 
-export default function ThikrFooter({ repeat }: { repeat: number }) {
+export default function ThikrFooter({
+  repeat,
+  dalel,
+}: {
+  repeat: number;
+  dalel: string;
+}) {
   const [repeatZikr, setRepeatZikr] = useState(repeat);
   const handleRepeat = () => {
     if (repeatZikr === 0) return;
     setRepeatZikr(repeatZikr - 1);
     console.log(repeat);
   };
-  const handleInfo = () => {
+  const handleInfo = (e: ReactMouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     console.log("INFO clicked !");
   };
-  const handleShare = () => {
+  const handleShare = (e: ReactMouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+
     console.log("SHARE clicked !");
   };
 
@@ -23,7 +33,8 @@ export default function ThikrFooter({ repeat }: { repeat: number }) {
     {
       id: 2,
       label: "الدليل",
-      value: <GiInfo className="text-xl" />,
+      value: <DalelDialog dalel={dalel} />,
+      // value: <GiInfo className="text-xl" />,
       onClick: handleInfo,
     },
     {

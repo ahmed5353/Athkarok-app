@@ -42,6 +42,7 @@ export default function SabahZikrPage() {
         <ThikrCard
           repeat={zikr.count}
           thikr={zikr.zikrText}
+          dalel={zikr.dalel}
           key={zikr.id}
           onClick={() => handleZikrClick(zikr)}
         />

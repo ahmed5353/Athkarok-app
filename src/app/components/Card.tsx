@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { on } from "events";
 import { ReactNode } from "react";
 
 interface CardProps {
@@ -8,6 +9,12 @@ interface CardProps {
 }
 
 export default function Card({ children, className, onClick }: CardProps) {
+  // function hadleClick(e: React.MouseEvent<HTMLDivElement>) {
+  //   e.stopPropagation();
+  //
+  //     onClick();
+  //   }
+  // }
   return (
     <section
       className={clsx("rounded-lg bg-[#eaeaea] p-3", className)}

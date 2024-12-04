@@ -1,12 +1,12 @@
 "use client";
-import clsx from "clsx";
-import { ReactNode } from "react";
+import { ReactNode, MouseEvent as ReactMouseEvent } from "react";
+import { twJoin, twMerge } from "tailwind-merge";
 interface FooterItemProps {
   label: string;
   value: ReactNode;
   isLast?: boolean;
   className?: string;
-  onClick?: () => void;
+  onClick?: (e: ReactMouseEvent<HTMLDivElement>) => void;
 }
 export default function FooterItem({
   label,
@@ -17,16 +17,16 @@ export default function FooterItem({
 }: FooterItemProps) {
   return (
     <div
-      className={clsx(
+      className={twMerge(
         "flex cursor-pointer select-none flex-col items-center text-gray-900",
-        !isLast && "border-e-2 border-gray-900",
+        !isLast && "relative border-e-2 border-gray-900",
         className,
       )}
       onClick={onClick}
     >
       <span>{label}</span>
       <span
-        className={clsx(
+        className={twJoin(
           typeof value === "number" &&
             "rounded-full border border-gray-900 bg-red-500 px-4",
         )}
