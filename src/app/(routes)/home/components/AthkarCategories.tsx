@@ -8,7 +8,7 @@ export default function AthkarCategories() {
     { id: 1, name: "أذكار الصباح", path: "/athkar/sabah" },
     { id: 2, name: "أذكار المساء", path: "/athkar/masaa" },
     { id: 3, name: "أذكار المسجد", path: "/athkar/masjid" },
-    { id: 4, name: "أذكار النوم", path: "/athkar/sleep" },
+    { id: 4, name: "أذكار النوم", path: "/athkar/noom" },
   ];
 
   const borderStyles = ["border-b border-l", "border-b", "", "border-r"];

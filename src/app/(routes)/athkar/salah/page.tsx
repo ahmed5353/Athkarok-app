@@ -3,20 +3,20 @@
 import ThikrCard from "@/app/components/ThikrCard";
 import { ZikrCategory } from "@/app/types/types";
 import { useEffect } from "react";
-import { sabahZikr } from "@/app/data";
+import { salahZikr } from "@/app/data";
 import zikrDataSetup from "@/lib/zikrDataSetup";
 import useZikrData from "@/app/hooks/useZikrData";
 
-export default function SabahPage() {
+export default function SalahPage() {
   const { zikrs, loading, handleZikrClick } = useZikrData(
-    ZikrCategory.SABAH,
-    sabahZikr,
+    ZikrCategory.SALAH,
+    salahZikr,
   );
 
   // Initialize database on component mount
   useEffect(() => {
     const initDb = async () => {
-      await zikrDataSetup(ZikrCategory.SABAH, sabahZikr);
+      await zikrDataSetup(ZikrCategory.SALAH, salahZikr);
     };
     initDb();
   }, []);

@@ -3,6 +3,11 @@ import AthkarCard from "./components/AthkarCard";
 export default function AthkarPage() {
   const athkarList = [
     {
+      thikr: "أذكار الاستيقاظ",
+      image: 'url("/images/zikr-icons/estekaz-pic.jpg")',
+      path: "astekaz",
+    },
+    {
       thikr: "أذكار الصباح",
       image: 'url("/images/zikr-icons/sabah-pic.jpg")',
       path: "sabah",
@@ -18,19 +23,15 @@ export default function AthkarPage() {
       path: "noom",
     },
     {
-      thikr: "أذكار الاستيقاظ",
-      image: 'url("/images/zikr-icons/estekaz-pic.jpg")',
-      path: "estekaz",
+      thikr: "أذكار المسجد",
+      image: 'url("/images/zikr-icons/massjed-pic.jpg")',
+      path: "masjid",
     },
+
     {
       thikr: "أذكار الصلاة",
       image: 'url("/images/zikr-icons/slaah-pic.jpg")',
       path: "salah",
-    },
-    {
-      thikr: "أذكار المسجد",
-      image: 'url("/images/zikr-icons/massjed-pic.jpg")',
-      path: "masjid",
     },
   ];
   return (

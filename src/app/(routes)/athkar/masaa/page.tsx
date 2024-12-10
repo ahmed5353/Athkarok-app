@@ -1,38 +1,27 @@
 "use client";
 
 import ThikrCard from "@/app/components/ThikrCard";
-import { masaaZikr } from "@/app/data";
-import { Zikr } from "@/app/types/types";
-import { ZikrCategory, zikrDb } from "@/lib/db";
-import { useLiveQuery } from "dexie-react-hooks";
+import { ZikrCategory } from "@/app/types/types";
 import { useEffect } from "react";
+import { masaaZikr } from "@/app/data";
+import zikrDataSetup from "@/lib/zikrDataSetup";
+import useZikrData from "@/app/hooks/useZikrData";
 
 export default function MasaaPage() {
+  const { zikrs, loading, handleZikrClick } = useZikrData(
+    ZikrCategory.MASAA,
+    masaaZikr,
+  );
+
+  // Initialize database on component mount
   useEffect(() => {
     const initDb = async () => {
-      // Check if database is empty before adding initial data
-      const sabahCount = await zikrDb.masaaZikr.count();
-
-      if (sabahCount === 0) {
-        await zikrDb.setUpInitialData(
-          [],
-          masaaZikr, // masaaZikr
-          [], // masjidZikr
-          [], // sleepZikr
-        );
-      }
+      await zikrDataSetup(ZikrCategory.MASAA, masaaZikr);
     };
     initDb();
   }, []);
-  const zikrs = useLiveQuery(() => zikrDb.masaaZikr.toArray(), []);
 
-  const handleZikrClick = async (zikr: Zikr) => {
-    if (zikr.id) {
-      await zikrDb.decrementZikrCount(ZikrCategory.MASAA, zikr.id);
-    }
-  };
-
-  if (!zikrs) return <div>Loading...</div>;
+  if (loading) return <div>Loading...</div>;
 
   return (
     <>
@@ -40,6 +29,7 @@ export default function MasaaPage() {
         <ThikrCard
           repeat={zikr.count}
           thikr={zikr.zikrText}
+          dalel={zikr.dalel}
           key={zikr.id}
           onClick={() => handleZikrClick(zikr)}
         />

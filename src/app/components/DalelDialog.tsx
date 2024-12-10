@@ -9,7 +9,7 @@ import {
 import { GiInfo } from "react-icons/gi";
 
 interface DalelDialogProps {
-  dalel: string;
+  dalel?: string;
 }
 export default function DalelDialog({ dalel }: DalelDialogProps) {
   return (

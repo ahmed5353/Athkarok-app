@@ -5,7 +5,7 @@ import ThikrFooter from "./ThikrFooter";
 interface ThikrCardProps {
   repeat: number;
   thikr: string;
-  dalel: string;
+  dalel?: string;
   onClick?: () => void;
 }
 const ThikrCard: FC<ThikrCardProps> = ({

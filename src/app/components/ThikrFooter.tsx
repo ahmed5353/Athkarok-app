@@ -10,7 +10,7 @@ export default function ThikrFooter({
   dalel,
 }: {
   repeat: number;
-  dalel: string;
+  dalel?: string;
 }) {
   const [repeatZikr, setRepeatZikr] = useState(repeat);
   const handleRepeat = () => {
