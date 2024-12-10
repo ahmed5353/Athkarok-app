@@ -3,7 +3,7 @@
 import ThikrCard from "@/app/components/ThikrCard";
 import { ZikrCategory } from "@/app/types/types";
 import { useEffect } from "react";
-import { masaaZikr } from "@/app/data";
+import { masaaZikr } from "@/app/data/athkar";
 import zikrDataSetup from "@/lib/zikrDataSetup";
 import useZikrData from "@/app/hooks/useZikrData";
 

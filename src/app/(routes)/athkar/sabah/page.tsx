@@ -2,9 +2,7 @@
 
 import ThikrCard from "@/app/components/ThikrCard";
 import { ZikrCategory } from "@/app/types/types";
-import { useEffect } from "react";
-import { sabahZikr } from "@/app/data";
-import zikrDataSetup from "@/lib/zikrDataSetup";
+import { sabahZikr } from "@/app/data/athkar";
 import useZikrData from "@/app/hooks/useZikrData";
 
 export default function SabahPage() {
@@ -12,14 +10,6 @@ export default function SabahPage() {
     ZikrCategory.SABAH,
     sabahZikr,
   );
-
-  // Initialize database on component mount
-  useEffect(() => {
-    const initDb = async () => {
-      await zikrDataSetup(ZikrCategory.SABAH, sabahZikr);
-    };
-    initDb();
-  }, []);
 
   if (loading) return <div>Loading...</div>;
 

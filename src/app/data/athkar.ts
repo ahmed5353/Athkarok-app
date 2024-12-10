@@ -1,4 +1,4 @@
-export const estekazZikr = [
+export const astekazZikr = [
   {
     zikrText:
       "الحَمْدُ لِلَّهِ الذي أحْيانا بَعْدَ ما أماتَنا وإلَيْهِ النُّشُورُ.",

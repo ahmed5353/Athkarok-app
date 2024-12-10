@@ -1,3 +1,4 @@
+import { quotes } from "@/app/data/quotes";
 import AthkarCategories from "./components/AthkarCategories";
 import AthkarHeader from "./components/AthkarHeader";
 import DailyQuote from "./components/DailyQuote";
@@ -5,15 +6,13 @@ import RadioLive from "./components/RadioLive";
 import SalahTime from "./components/SalahTime";
 
 export default function HomePage() {
+  const quote = quotes[Math.floor(Math.random() * quotes.length)];
+
   return (
     <>
       <AthkarHeader />
       <AthkarCategories />
-      <DailyQuote
-        quote=" اللهم إني أعوذ بك من الهم والحزن، وأعوذ بك من العجز والكسل، وأعوذ بك
-              من الجبن والبخل، وأعوذ بك من غلبة الدين وقهر الرجال."
-        author="النبي محمد صلى الله عليه وسلم"
-      />
+      <DailyQuote quote={quote.quote} author={quote.author} />
       <RadioLive />
       <SalahTime />
     </>

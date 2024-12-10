@@ -2,13 +2,13 @@
 
 import ThikrCard from "@/app/components/ThikrCard";
 import { ZikrCategory } from "@/app/types/types";
-import { salahZikr } from "@/app/data/athkar";
+import { astekazZikr } from "@/app/data/athkar";
 import useZikrData from "@/app/hooks/useZikrData";
 
-export default function SalahPage() {
+export default function AstekazPage() {
   const { zikrs, loading, handleZikrClick } = useZikrData(
-    ZikrCategory.SALAH,
-    salahZikr,
+    ZikrCategory.ASTEKAZ,
+    astekazZikr,
   );
 
   if (loading) return <div>Loading...</div>;
