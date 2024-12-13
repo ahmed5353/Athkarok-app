@@ -1,15 +1,16 @@
+"use client";
 import Card from "@/app/components/Card";
 import Tag from "@/app/components/Tag";
+import useDailyQuote from "@/app/hooks/useDailyQuote";
 import { FiShare2 } from "react-icons/fi";
 
-interface DailyQuoteProps {
-  quote: string;
-  author: string;
-}
+export default function DailyQuote() {
+  const { dailyQuote } = useDailyQuote();
 
-export default function DailyQuote({ quote, author }: DailyQuoteProps) {
+  // TODO:we want to put skeleton here
+  if (!dailyQuote) return;
+
   return (
-    /* // Article container for the quote card */
     <Card>
       <article>
         <header className="mb-3 flex justify-between px-2">
@@ -19,15 +20,16 @@ export default function DailyQuote({ quote, author }: DailyQuoteProps) {
           </button>
         </header>
         <blockquote className="px-4 py-2 text-center">
-          {quote ? (
-            <p className="text-md leading-relaxed">{quote}</p>
+          {/* {dailyQuote ? (
+            <p className="text-md leading-relaxed">{dailyQuote.quote}</p>
           ) : (
             <p>لا توجد اقتباسات لهذا اليوم</p>
-          )}
+          )} */}
+          <p className="text-md leading-relaxed">{dailyQuote?.quote}</p>
         </blockquote>
         <footer className="text-center">
           <cite className="text-sm font-light">
-            - <i>{author}</i> -
+            - <i>{dailyQuote?.author}</i> -
           </cite>
         </footer>
       </article>

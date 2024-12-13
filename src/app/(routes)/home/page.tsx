@@ -6,13 +6,11 @@ import RadioLive from "./components/RadioLive";
 import SalahTime from "./components/SalahTime";
 
 export default function HomePage() {
-  const quote = quotes[Math.floor(Math.random() * quotes.length)];
-
   return (
     <>
       <AthkarHeader />
       <AthkarCategories />
-      <DailyQuote quote={quote.quote} author={quote.author} />
+      <DailyQuote />
       <RadioLive />
       <SalahTime />
     </>

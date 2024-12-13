@@ -16,3 +16,9 @@ export enum ZikrCategory {
   MASJID = "masjidZikr",
   SALAH = "salahZikr",
 }
+
+// Quote
+export interface Quote {
+  quote: string;
+  author: string;
+}
