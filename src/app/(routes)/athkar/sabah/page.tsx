@@ -4,6 +4,8 @@ import ThikrCard from "@/app/components/ThikrCard";
 import { ZikrCategory } from "@/app/types/types";
 import { sabahZikr } from "@/app/data/athkar";
 import useZikrData from "@/app/hooks/useZikrData";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export default function SabahPage() {
   const { zikrs, loading, handleZikrClick } = useZikrData(
@@ -11,10 +13,10 @@ export default function SabahPage() {
     sabahZikr,
   );
 
-  if (loading) return <div>Loading...</div>;
+  // if (loading) return <div>Loading...</div>;
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       {zikrs?.map((zikr) => (
         <ThikrCard
           repeat={zikr.count}
@@ -24,6 +26,6 @@ export default function SabahPage() {
           onClick={() => handleZikrClick(zikr)}
         />
       ))}
-    </>
+    </Suspense>
   );
 }

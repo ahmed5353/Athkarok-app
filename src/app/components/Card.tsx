@@ -1,6 +1,5 @@
-import clsx from "clsx";
-import { on } from "events";
 import { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
 interface CardProps {
   children: ReactNode;
@@ -8,7 +7,12 @@ interface CardProps {
   onClick?: () => void;
 }
 
-export default function Card({ children, className, onClick }: CardProps) {
+export default function Card({
+  children,
+  className,
+  onClick,
+  ...props
+}: CardProps) {
   // function hadleClick(e: React.MouseEvent<HTMLDivElement>) {
   //   e.stopPropagation();
   //
@@ -17,8 +21,9 @@ export default function Card({ children, className, onClick }: CardProps) {
   // }
   return (
     <section
-      className={clsx("rounded-lg bg-[#eaeaea] p-3", className)}
+      className={twMerge("rounded-lg bg-[#eaeaea] p-3", className)}
       onClick={onClick}
+      {...props}
     >
       {children}
     </section>

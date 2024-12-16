@@ -2,9 +2,7 @@
 
 import ThikrCard from "@/app/components/ThikrCard";
 import { ZikrCategory } from "@/app/types/types";
-import { useEffect } from "react";
 import { masjidZikr } from "@/app/data/athkar";
-import zikrDataSetup from "@/lib/zikrDataSetup";
 import useZikrData from "@/app/hooks/useZikrData";
 
 export default function MasjidPage() {
@@ -13,15 +11,7 @@ export default function MasjidPage() {
     masjidZikr,
   );
 
-  // Initialize database on component mount
-  useEffect(() => {
-    const initDb = async () => {
-      await zikrDataSetup(ZikrCategory.MASJID, masjidZikr);
-    };
-    initDb();
-  }, []);
-
-  if (loading) return <div>Loading...</div>;
+  // if (loading) return <div>Loading...</div>;
 
   return (
     <>

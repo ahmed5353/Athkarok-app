@@ -1,16 +1,16 @@
 import Card from "@/app/components/Card";
 import { DropdownMenuDemo } from "@/app/(routes)/home/components/DropDownMenu";
-import Tag from "@/app/components/Tag";
+
 import { Button } from "@/app/components/ui/button";
 import React from "react";
+import TagHeader from "@/app/components/TagHeader";
 
 export default function RadioLive() {
   return (
     <Card>
-      <div className="flex justify-between">
-        <Tag label="اذاعة القران الكريم" />
+      <TagHeader tagLabel="اذاعة القراّن الكريم">
         <span className="text-blue-950">بث مباشر</span>
-      </div>
+      </TagHeader>
       <div className="flex justify-center">
         <DropdownMenuDemo />
       </div>

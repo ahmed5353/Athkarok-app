@@ -2,10 +2,11 @@
 
 import ThikrCard from "@/app/components/ThikrCard";
 import { ZikrCategory } from "@/app/types/types";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { masaaZikr } from "@/app/data/athkar";
-import zikrDataSetup from "@/lib/zikrDataSetup";
+
 import useZikrData from "@/app/hooks/useZikrData";
+import Loading from "./loading";
 
 export default function MasaaPage() {
   const { zikrs, loading, handleZikrClick } = useZikrData(
@@ -13,18 +14,10 @@ export default function MasaaPage() {
     masaaZikr,
   );
 
-  // Initialize database on component mount
-  useEffect(() => {
-    const initDb = async () => {
-      await zikrDataSetup(ZikrCategory.MASAA, masaaZikr);
-    };
-    initDb();
-  }, []);
-
-  if (loading) return <div>Loading...</div>;
+  // if (loading) return <div>Loading...</div>;
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       {zikrs?.map((zikr) => (
         <ThikrCard
           repeat={zikr.count}
@@ -34,6 +27,6 @@ export default function MasaaPage() {
           onClick={() => handleZikrClick(zikr)}
         />
       ))}
-    </>
+    </Suspense>
   );
 }

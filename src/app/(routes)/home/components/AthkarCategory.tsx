@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 
 type AthkarCategoryProps = { category: string; className?: string };
 
@@ -9,7 +9,7 @@ export default function AthkarCategory({
 }: Readonly<AthkarCategoryProps>) {
   return (
     <button
-      className={clsx("p-4 text-center text-xl font-bold", className)}
+      className={twMerge("p-4 text-center text-xl font-bold", className)}
       {...props}
     >
       {category}

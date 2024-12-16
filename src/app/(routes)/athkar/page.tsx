@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import AthkarCard from "./components/AthkarCard";
+import Loading from "./loading";
 
 export default function AthkarPage() {
   const athkarList = [
@@ -35,15 +37,17 @@ export default function AthkarPage() {
     },
   ];
   return (
-    <main className="flex flex-col gap-3">
-      {athkarList.map((athkar) => (
-        <AthkarCard
-          key={athkar.thikr}
-          image={athkar.image}
-          thikr={athkar.thikr}
-          path={athkar.path}
-        />
-      ))}
-    </main>
+    <Suspense fallback={<Loading />}>
+      <main className="flex flex-col gap-3">
+        {athkarList.map((athkar) => (
+          <AthkarCard
+            key={athkar.thikr}
+            image={athkar.image}
+            thikr={athkar.thikr}
+            path={athkar.path}
+          />
+        ))}
+      </main>
+    </Suspense>
   );
 }
