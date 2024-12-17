@@ -1,9 +1,9 @@
+import { Suspense } from "react";
 import AthkarCategories from "./components/AthkarCategories";
 import AthkarHeader from "./components/AthkarHeader";
 import DailyQuote from "./components/DailyQuote";
 import RadioLive from "./components/RadioLive";
-import SalahTime from "./components/SalahTime";
-import { Suspense } from "react";
+import PrayerTimes from "./components/PrayerTimes";
 import Loading from "./loading";
 
 export default function HomePage() {
@@ -13,7 +13,7 @@ export default function HomePage() {
       <AthkarCategories />
       <DailyQuote />
       <RadioLive />
-      <SalahTime />
+      <PrayerTimes />
     </Suspense>
   );
 }
