@@ -1,5 +1,5 @@
 import Card from "@/app/components/Card";
-import { DropdownMenuDemo } from "@/app/(routes)/home/components/DropDownMenu";
+import { RadioDropdownMenu } from "./DropDownMenu";
 
 import { Button } from "@/app/components/ui/button";
 import React from "react";
@@ -12,7 +12,7 @@ export default function RadioLive() {
         <span className="text-blue-950">بث مباشر</span>
       </TagHeader>
       <div className="flex justify-center">
-        <DropdownMenuDemo />
+        <RadioDropdownMenu />
       </div>
       <div className="mt-5 flex justify-center gap-3">
         <Button className="w-28" variant="secondary">

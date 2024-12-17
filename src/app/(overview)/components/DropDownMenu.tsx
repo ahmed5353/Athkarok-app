@@ -18,7 +18,7 @@ const radioStations: RadioStation[] = [
   { id: 3, name: "إذاعة الإمارات" },
 ];
 
-export function DropdownMenuDemo() {
+export function RadioDropdownMenu() {
   const [selectedStation, setSelectedStation] = useState<string>(
     "إذاعة القراّن الكريم من القاهرة",
   );
