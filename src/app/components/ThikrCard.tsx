@@ -1,4 +1,3 @@
-import React, { FC } from "react";
 import Card from "./Card";
 import ThikrFooter from "./ThikrFooter";
 
@@ -8,12 +7,12 @@ interface ThikrCardProps {
   dalel?: string;
   onClick?: () => void;
 }
-const ThikrCard: FC<ThikrCardProps> = ({
+export default function ThikrCard({
   repeat = 1,
   thikr,
   onClick,
   dalel,
-}) => {
+}: ThikrCardProps) {
   return (
     <Card onClick={onClick}>
       <article>
@@ -24,5 +23,4 @@ const ThikrCard: FC<ThikrCardProps> = ({
       </article>
     </Card>
   );
-};
-export default ThikrCard;
+}

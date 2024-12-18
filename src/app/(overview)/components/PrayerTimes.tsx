@@ -40,7 +40,7 @@ export default function PrayerTimes() {
     },
   ];
   return (
-    <Card>
+    <Card className="bg-gradient-to-b from-[#d9efff80] to-[#ffdcc7dc]">
       <TagHeader tagLabel="مواقيت الصلاة">
         <span className="text-blue-950">
           Mansoura, Egypt | 16th Dec 2024 (3 Jumada al-Awwal 1446)

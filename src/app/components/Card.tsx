@@ -13,15 +13,12 @@ export default function Card({
   onClick,
   ...props
 }: CardProps) {
-  // function hadleClick(e: React.MouseEvent<HTMLDivElement>) {
-  //   e.stopPropagation();
-  //
-  //     onClick();
-  //   }
-  // }
   return (
     <section
-      className={twMerge("rounded-lg bg-[#eaeaea] p-3", className)}
+      className={twMerge(
+        "rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 p-3",
+        className,
+      )}
       onClick={onClick}
       {...props}
     >
