@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/app/layouts/Header";
 import { almarai, cairo } from "./fonts/fonts";
+import ReactQueryProvider from "./ReactQueryProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +21,7 @@ export default function RootLayout({
       >
         <Header />
         <main className="mx-auto mt-6 flex max-w-2xl flex-col gap-3">
-          {children}
+          <ReactQueryProvider>{children}</ReactQueryProvider>
         </main>
       </body>
     </html>

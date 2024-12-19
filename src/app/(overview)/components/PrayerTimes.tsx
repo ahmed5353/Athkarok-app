@@ -1,8 +1,26 @@
+"use client";
 import Card from "@/app/components/Card";
 import TagHeader from "@/app/components/TagHeader";
+
 import AdhanTime from "./AdhanTime";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+
+async function getPrayerTimes() {
+  const response = await axios.get(
+    "https://api.aladhan.com/v1/timingsByCity/17-12-2024?city=Mansoura&country=EG",
+  );
+  // if (!res.ok) throw new Error("Error fetching data");
+  return response;
+  // console.log(response);
+}
 
 export default function PrayerTimes() {
+  const { data } = useQuery({
+    queryKey: ["prayerTimes"],
+    queryFn: getPrayerTimes,
+  });
+  console.log(data);
   const adhanTime: {
     adhan: string;
     icon: string;
