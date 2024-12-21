@@ -1,26 +1,18 @@
 "use client";
 import Card from "@/app/components/Card";
 import TagHeader from "@/app/components/TagHeader";
-
 import AdhanTime from "./AdhanTime";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
-
-async function getPrayerTimes() {
-  const response = await axios.get(
-    "https://api.aladhan.com/v1/timingsByCity/17-12-2024?city=Mansoura&country=EG",
-  );
-  // if (!res.ok) throw new Error("Error fetching data");
-  return response;
-  // console.log(response);
-}
+import usePrayerTimes from "@/app/hooks/usePrayerTimes";
 
 export default function PrayerTimes() {
-  const { data } = useQuery({
-    queryKey: ["prayerTimes"],
-    queryFn: getPrayerTimes,
-  });
-  console.log(data);
+  const { data, isLoading, error } = usePrayerTimes();
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading prayer times.</div>;
+
+  const { Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha } = data?.timings || {};
+  console.log(Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha);
+
   const adhanTime: {
     adhan: string;
     icon: string;
@@ -29,32 +21,32 @@ export default function PrayerTimes() {
     {
       adhan: "الفجر",
       icon: "🌙",
-      time: "05:09 ص",
+      time: Fajr,
     },
     {
       adhan: "الشروق",
       icon: "☀️",
-      time: "06:40 ص",
+      time: Sunrise,
     },
     {
       adhan: "الظهر",
       icon: "🕐",
-      time: "11:50 ص",
+      time: Dhuhr,
     },
     {
       adhan: "العصر",
       icon: "🕒",
-      time: "03:09 م",
+      time: Asr,
     },
     {
       adhan: "المغرب",
       icon: "🌅",
-      time: "05:09 م",
+      time: Maghrib,
     },
     {
       adhan: "العشاء",
       icon: "🌌",
-      time: "07:09 م",
+      time: Isha,
     },
   ];
   return (
@@ -65,7 +57,7 @@ export default function PrayerTimes() {
         </span>
       </TagHeader>
       <div className="flex flex-col gap-2">
-        {adhanTime?.map((adhan) => (
+        {adhanTime.map((adhan) => (
           <AdhanTime
             adhanName={adhan.adhan}
             icon={adhan.icon}
