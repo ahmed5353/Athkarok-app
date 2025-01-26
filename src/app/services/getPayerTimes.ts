@@ -1,8 +1,15 @@
+import { getToday } from "@/lib/utils/getToday";
 import axios from "axios";
 
-export async function getPrayerTimes() {
+const today = getToday();
+export async function getPrayerTimes(lat: number, lng: number) {
+  // const response = await axios.get(
+  //   `https://api.aladhan.com/v1/timingsByCity/22-12-2024?city=Mansoura&country=EG`,
+  // );
+
   const response = await axios.get(
-    `https://api.aladhan.com/v1/timingsByCity/17-12-2024?city=Mansoura&country=EG`,
+    `https://api.aladhan.com/v1/timings/${today}?latitude=${lat}&longitude=${lng}`,
   );
-  return response.data?.data;
+  if (!response) throw new Error("Bad request, can't find prayer times");
+  return response?.data;
 }

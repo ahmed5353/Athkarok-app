@@ -1,4 +1,4 @@
-import { getToday } from "@/lib/utils";
+import { getToday } from "@/lib/utils/getToday";
 import { useEffect, useState } from "react";
 import { quotes } from "../data/quotes";
 import { Quote } from "../types/types";
